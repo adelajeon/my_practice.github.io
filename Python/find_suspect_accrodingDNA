@@ -1,0 +1,10 @@
+#도둑문제
+a = int(input("DNA의 1번째 값:"))
+b = int(input("DNA의 2번째 값:"))
+c = int(input("DNA의 3번째 값:"))
+d = int(input("DNA의 4번째 값:"))
+
+if (a+b+c+d) % 7 == 4:
+    print("suspect")
+else:
+    print("citizens")
