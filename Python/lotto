@@ -1,0 +1,11 @@
+#로또 번호 생성하기. 오름차순으로 정렬해서 출력
+import random
+lotto = []
+
+while len(lotto) < 6:
+    number = random.randrange(1,46)
+    if not number in lotto:
+        lotto.append(number)
+
+lotto.sort()
+print(lotto)
