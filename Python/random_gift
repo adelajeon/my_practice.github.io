@@ -1,0 +1,14 @@
+from random import shuffle, sample 
+users = list(range(1,21))
+shuffle(users)
+chicken = sample(users, 1)
+coffee=sample(users,3)
+
+print(f"치킨에 당첨된 {len(chicken)}명은 {chicken}번, 커피에 당첨된 {len(coffee)}명은 {coffee}번입니다.")
+
+
+#추첨을 통해 1명은 치킨 당첨. 3명은 커피 당첨 랜덤 코딩 작성하세요
+#  조건1 편의상 20명 중에서 뽑음
+#  조건2 랜덤이며 중복 제외
+#  조건3 랜덤 모듈 import 하고 shuffle 과 sample 키워드 사용
+
