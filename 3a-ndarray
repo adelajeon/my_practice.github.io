@@ -1,0 +1,14 @@
+
+A = np.arange(5)
+B = np.array([0,1,2,3,4])
+D = np.ndarray((5,), np.int32, np.array([0,1,2,3,4]))
+
+print(A)
+print(type(A))
+print(A.dtype)
+print(B)
+print(type(B))
+print(B.dtype)
+print(D)
+print(type(D))
+print(D.dtype)
