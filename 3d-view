@@ -1,0 +1,21 @@
+
+import numpy as np
+
+arr = np.array([1, 2, 3, 4, 5])
+
+x = arr.copy()
+y = arr.view()
+
+print("x 바꾸기 전 :",x)
+x[3] = 0
+print("x 바꾼 후 :",x)
+print("x 바꾼 후의 arr:", arr)
+print()
+
+print("y 바꾸기 전 :",y)
+y[3] = 0
+print("y 바꾼 후 :",y)
+print("y 바꾼 후의 arr:",arr)
+print()
+print("x의 원본:", x.base, ": copy를 했기 때문에 원본이 따로 없다.")
+print("y의 원본:", y.base, ": arr의 view이기 때문에 원본은 arr이다.")
