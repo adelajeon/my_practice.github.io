@@ -1,0 +1,26 @@
+
+from numpy import random 
+random.seed(1)
+#0과 1사이에 실수 랜덤으로 추출
+a = random.random(5)
+print(a)
+
+#a와 b사이에 정수를 랜덤으로 추출
+b = random.randint(10, size=(3,3))
+print(b)
+
+#rand
+c = random.rand(3,5)
+print(c)
+
+#choice로 1차원 배열 만들기
+d = random.choice(range(10), 6)
+print(d)
+
+#choice로 2차원 배열 만들기
+e = random.choice([3, 5, 7, 9], size=(3, 5))
+print(e)
+
+#choice로 3차원 배열 만들기
+f = random.choice(range(10), size=(3,5,4))
+print(f)
