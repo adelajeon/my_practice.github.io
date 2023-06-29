@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>background_basic</title>
+    <style>
+        body {
+            /*각각의 그림을 레이어라고 합니다. */
+            background-image: url('cat.png'),url('BackgroundFront.png'), url('BackgroundBack.png');
+            background-size:40%, 100%, 100%;
+            background-repeat:space, no-repeat, no-repeat;
+            background-attachment: scroll;
+            background-position: bottom, top, top;
+            background-color: rgb(255, 254, 211);
+        }
+        h1, h2, h3 {
+           color:white; 
+           background-color: rgba(255, 195, 29, 0.623); 
+           display:inline-block center;
+           font-family: Arial; 
+           margin: 0,30%,0,30%;
+        }
+        
+        /* 체크 박스 부분 꾸미기*/
+        input[id="read"] + label {
+            display: inline;
+            width : 30px;
+            height: 30px;
+            border : 3px solid red;
+            cursor: pointer;
+        }
+
+        p {color: navy; background-color: rgba(255, 255, 255, 0.534); font-family: '없는 글꼴', serif; }
+        #read {font-size:large; color:rgb(255, 255, 255); background-color:red;}
+        .more {display:none; color:navy;}
+        #read:checked ~ .more {display: block;}
+        .a {font-size: 32px;}
+        .b {font-size: 1.5em;}
+        .c {font-size: large;}
+        .more {font-size: small;}
+        
+        .button{
+            width: 150px;
+            height: 70px;
+            background-color:#ff6a00;
+            border : 10px solid #FFFFFF;
+            border-radius: 30px;
+            box-shadow: 5px 5px 5px #A9A9a9;
+        }
+        .button > done {
+            display: block;
+            line-height: 70px;
+        }
+    </style>
+</head>
+<body>
+    <br><br><br><br>
+    <h1>Lorem Ipsum</h1>
+    <hr>
+    <p class="a">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+    <hr>
+    <h2>Why do we use it?</h2>
+    <hr>
+    <p class="b"><a name="test">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</a></p>
+    <hr>
+    <h3>Where does it come from?</h3>
+    <hr>
+    It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard M</p> 
+    It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard M</p> 
+    It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard M</p> 
+    It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard M</p> 
+    It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard M</p> 
+    
+    <div class="button">
+        <a href = "#test" class="done">I'm done.</a>
+    </div>
+    <label for="read">more read....▼</label>
+    <input type="checkbox" id="read">
+    <p class="more">He oversaw a private online group named Thug Shaker Central, according to documents reviewed by The Times.6 MIN READ The airman accused of leaking the trove was assigned tan intelligence unit on Cape Cod.
+    3 MIN READ  On the Scene as the Arrest Unfolded
+    By Haley Willis and C.J. Chivers Reporting from North Dighton, Mass poster for video We were outside the home of an Air National Guardsman when the F.B.I. arrived to arrest him in connection to the leak of classified U.S. documents poster for video Just before 1:30 p.m. on Thursday, w saw armed law enforcement officials entering the property where Jack Teixeira was inside. poster for video There were around a dozen vehicles in the area when officials announced that they had arrested the 21-year-old.
+     The Airman Who Gave Gamers a Real Taste of War The group liked online war games. But then Jack Teixeira, a 21-year-old National Guard airman, began showing them classified documents, members say. 6 MIN READ     
+    When “top secret” is not so secret: The leaking of classified documents opens a debate about security clearances 6 MIN READ Abortion Pill Rulings What to Know
+    Appeals Court Order Texas Judge Ruling Misoprostol, Explained Florida Legislature Passes Ban on Abortion After 6 Weeks of Pregnancy The prohibition is among the most restrictive in the country, and Florida will no longer be a destination for women from across the Deep South seeking the procedure. 7 MIN READAbortion Is Back at Supreme Court’s Door After Dueling Orders on Pill
+    The justices are poised to consider whether the most common method of ending pregnancies can be sharply curtailed in states where abortion remains legal.</div>
+
+</body>
+</html>
