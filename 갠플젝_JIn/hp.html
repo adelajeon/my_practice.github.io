@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>my HomePage</title>
+    <style>
+        body { padding-top: 150px;
+            background-color: #A7F1BC;
+            position:center;}
+        /* body::-webkit-scrollbar {display: none;} */
+        #home {
+            position:fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 20px 60px;
+            background-color: #fffdfd;
+            color: #393d3f;
+            font-size: 18px;
+            border-bottom: 1px solid #393c5e;
+            z-index: 10;
+            height:80px;
+          }
+        .start {float:left;}
+        .nav {
+            display:flex;
+            justify-content: center;
+            margin-top: 18px;
+            font-size:18px;
+          }
+        /*section - main 부분 */
+        section {width: 1200px; margin: 10px auto; position:center;}
+        #main {
+            margin: 100px 150px 200px 150px ;
+            display: flex;
+            justify-content:center;
+        }
+        .left_a {float:left; margin-right:30px;}
+        .pic {width: 350px; border-radius: 40%; margin:20px;}
+        .right_a {float:inline-end;}
+        /*section - about 부분 */
+        #about {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            background-color: #fffdfd;
+            padding: 80px 0 140px 0;
+            margin: 100 0 140px 0;
+            align-items:center;
+          }
+
+          /*section - project 부분 */
+          #project {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background-color:#abffd0c5;
+            align-items:center;
+            height:500px;
+          }
+
+          /*section - interests 부분 */
+          #interests {
+            display : flex;
+            flex-direction: column;
+            justify-content: center;
+            margin-bottom:30px;
+            background-color: #6e6f6f;
+            align-items:center;
+            height: 500px;
+          }
+          .interest { 
+            border:#393d3f;
+            width : 100px;
+            height : 100px;
+            
+
+          }
+    </style>
+</head>
+<body>
+    <div>
+        <header id="home">
+            <h1 class="start"> 전설희 </h1>
+            <div class="nav" style="font-size:18px;">
+                <h2><a href="#">Home</a></h2>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <h2><a href="#">About</a></h2>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <h2><a href="#">Project</a></h2>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <h2><a href="#">Interests</a></h2>
+            </div>
+        </header>
+        <section id="main">
+            <article class="left_a">
+                <img class='pic' src="https://media.npr.org/assets/img/2021/08/11/gettyimages-1279899488_wide-f3860ceb0ef19643c335cb34df3fa1de166e2761-s900-c85.webp">
+                <p>전설희 Adela 010-6208-6666</p>
+            </article>
+            <article class="right_a">
+                <p class="hello">안녕하세요,</p>
+                <p> 전설희 입니다. </p>
+                <p>
+                    <a href="https://github.com/adelajeon/my_practice.github.io">
+                        <img width="50" height="50" src="https://img.icons8.com/material-outlined/384/github.png" alt="github"/>
+                    </a>
+                    <a href="https://www.notion.so/3081f0dce8fb48849a56479097b35cce?pvs=4">
+                        <img width="50" height="50" src="https://img.icons8.com/material-outlined/50/notion--v1.png" alt="notion--v1"/>
+                    </a>
+                    <a href="https://dev-adela.tistory.com/">
+                        <img width="50" height="50" src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FcrpvuK%2FbtsmQfhHamu%2F1lM5RkqEBoK9YikH93RPVK%2Fimg.png">
+                    </a>
+                </p>
+            </article>
+        </section>
+        <section id="about">
+            <h2> About </h2>
+            <div class="about_title"> Experience </div>
+            <p class="content">2301102 ~ 239292 blalbalblblab</p>
+            <p class="content">2301102 ~ 239292 blalbalblblab</p>
+            <p class="content">2301102 ~ 239292 blalbalblblab</p>
+
+            <div class="about_title"> Education </div>
+            <p class="content">2301102 ~ 239292 blalbalblblab</p>
+            <p class="content">2301102 ~ 239292 blalbalblblab</p>
+            <p class="content">2301102 ~ 239292 blalbalblblab</p>
+
+            <div class="about_title"> Skill set </div>
+            <p class="content">2301102 ~ 239292 blalbalblblab</p>
+            <p class="content">2301102 ~ 239292 blalbalblblab</p>
+            <p class="content">2301102 ~ 239292 blalbalblblab</p>
+        </section>
+        <section id="project">
+            <h2> Project </h2>
+            <table>
+                <th rowspan="2"> 이미지 </th>
+                <td> Project:blablab   기간:blablalb</td>
+                <td> 설명blblblblblblblblblblblblblblbl</td>
+            </table><br><br>
+            <table>
+                <th rowspan="2"> 이미지 </th>
+                <td> Project:blablab   기간:blablalb</td>
+                <td> 설명blblblblblblblblblblblblblblbl</td>
+            </table><br><br>
+            <table>
+                <th rowspan="2"> 이미지 </th>
+                <td> Project:blablab   기간:blablalb</td>
+                <td> 설명blblblblblblblblblblblblblblbl</td>
+            </table><br><br>
+        </section>
+        <section id="interests">
+            <h2> Interests </h2>
+            <p><img class='interest' src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Cat03.jpg/1200px-Cat03.jpg">
+                <img class='interest' src="">
+                <img class='interest' src="">
+                <img class='interest' src=""></p>
+
+        </section>
+        <footer>
+            <p>전설희 / 010-6208-6666 / </p>
+        </footer>
+    </div>
+    
+</body>
+</html>
