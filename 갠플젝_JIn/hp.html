@@ -7,8 +7,11 @@
     <style>
         body { padding-top: 150px;
             background-color: #A7F1BC;
-            position:center;}
-        /* body::-webkit-scrollbar {display: none;} */
+            position:center;
+            font-family: 'NanumSquareRound';}
+
+        body::-webkit-scrollbar {display: none;}
+        a { text-decoration: none;}
         #home {
             position:fixed;
             top: 0;
@@ -18,49 +21,87 @@
             background-color: #fffdfd;
             color: #393d3f;
             font-size: 18px;
-            border-bottom: 1px solid #393c5e;
-            z-index: 10;
             height:80px;
+            font-family: 'NanumSquareRound';
+            font-weight:bold;
           }
         .start {float:left;}
         .nav {
             display:flex;
             justify-content: center;
-            margin-top: 18px;
-            font-size:18px;
+            margin-top: 8px;
+            font-size:20px;
+            color:#A7F1BC;
           }
         /*section - main 부분 */
         section {width: 1200px; margin: 10px auto; position:center;}
         #main {
-            margin: 100px 150px 200px 150px ;
+            margin: 80px 150px 120px 150px ;
             display: flex;
             justify-content:center;
         }
+        .hello {font-size: 50px; font-weight:bold; 
+            background-color: #393d3f; color:#A7F1BC;}
         .left_a {float:left; margin-right:30px;}
-        .pic {width: 350px; border-radius: 40%; margin:20px;}
+        .pic {width: 250px; border-radius: 40%; margin:20px;}
         .right_a {float:inline-end;}
         /*section - about 부분 */
+        .a_title {font-size: 40px; 
+            font-weight:bold;
+            background-color:#A7F1BC;
+            padding:5px 100px 5px 100px;
+            color:#393d3f;}
         #about {
             display: flex;
             justify-content: center;
             flex-direction: column;
             background-color: #fffdfd;
-            padding: 80px 0 140px 0;
-            margin: 100 0 140px 0;
+            padding: 30px 0 30px 0;
+            margin: 100 0 80px 0;
             align-items:center;
           }
+        .about_title {
+            font-size:20px;
+            font-weight:bold;
+            color:#A7F1BC;
+            background-color: #393d3f;
+            padding: 5px 50px 5px 50px;
+            margin: 30px 0 30px 0;
+        }
 
           /*section - project 부분 */
+          .p_title {font-size: 40px; 
+            font-weight:bold;
+            background-color :#393d3f;
+            padding:5px 100px 5px 100px;
+            color:#A7F1BC;}
           #project {
             display: flex;
             flex-direction: column;
             justify-content: center;
             background-color:#abffd0c5;
             align-items:center;
-            height:500px;
+            padding: 30px 0 30px 0;
+            margin: 100 0 80px 0;
+            height:700px;
+          }
+          .p_table {
+            background-color: #edf6f9;
+            height:1000px;
+            width:600px;
+          }
+
+          .p_table_t {
+            vertical-align:bottom;
           }
 
           /*section - interests 부분 */
+          .i_title {font-size: 40px; 
+            font-weight:bold;
+            background-color:#A7F1BC;
+            padding:5px 100px 5px 100px;
+            color:#edf6f9;
+            text-shadow:1px 1px 1px #393d3f;}
           #interests {
             display : flex;
             flex-direction: column;
@@ -72,59 +113,68 @@
           }
           .interest { 
             border:#393d3f;
-            width : 100px;
-            height : 100px;
-            
-
+            margin: 10px;
+            width : 150px;
+            height : 150px;
+          }
+          footer {
+            display:flex;
+            justify-content: center;
+            color:#393d3f;
+            background-color: rgba(255, 255, 255, 0.523);
+            height:80px;
+            align-items:center;
           }
     </style>
 </head>
 <body>
     <div>
         <header id="home">
-            <h1 class="start"> 전설희 </h1>
-            <div class="nav" style="font-size:18px;">
-                <h2><a href="#">Home</a></h2>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <h2><a href="#">About</a></h2>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <h2><a href="#">Project</a></h2>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <h2><a href="#">Interests</a></h2>
+            <h1 class="start"> PORTFOLIO </h1>
+            <div class="nav">
+                <h2><a href="#main" style="color:#393d3f; font-weight:bold; background: linear-gradient(to top, #A7F1BC 50%, transparent 50%)">HOME</a></h2>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <h2><a href="#about" style="color:#393d3f; font-weight:bold; background: linear-gradient(to top, #A7F1BC 50%, transparent 50%)">ABOUT</a></h2>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <h2><a href="#project" style="color:#393d3f; font-weight:bold; background: linear-gradient(to top, #A7F1BC 50%, transparent 50%)">PROJECT</a></h2>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <h2><a href="#interests" style="color:#393d3f; font-weight:bold; background: linear-gradient(to top, #A7F1BC 50%, transparent 50%)">INTERESTS</a></h2>
             </div>
         </header>
         <section id="main">
             <article class="left_a">
-                <img class='pic' src="https://media.npr.org/assets/img/2021/08/11/gettyimages-1279899488_wide-f3860ceb0ef19643c335cb34df3fa1de166e2761-s900-c85.webp">
-                <p>전설희 Adela 010-6208-6666</p>
+                <img class='pic' src="https://cdn.wadiz.kr/ft/images/green001/2021/1213/20211213120822340_4.jpg/wadiz/format/jpg/quality/80/">
+                <p align="center"><b>전설희 Adela</b> 010-6208-6666</p>
             </article>
             <article class="right_a">
-                <p class="hello">안녕하세요,</p>
-                <p> 전설희 입니다. </p>
+                <p class="hello">&nbsp;안녕하세요,</p>
+                <p> 전설희 입니다. 여기에 간단한 자기소개 2~3줄 적을 예정입니다. </p>
+                <p> 전설희 입니다. 여기에 간단한 자기소개 2~3줄 적을 예정입니다. </p>
+                <p> 전설희 입니다. 여기에 간단한 자기소개 2~3줄 적을 예정입니다. </p>
+                <br>
                 <p>
                     <a href="https://github.com/adelajeon/my_practice.github.io">
-                        <img width="50" height="50" src="https://img.icons8.com/material-outlined/384/github.png" alt="github"/>
-                    </a>
+                        <img width="40" height="40" src="https://img.icons8.com/material-outlined/384/github.png" alt="github"/> git-hub
+                    </a>&nbsp;&nbsp;&nbsp;&nbsp;
                     <a href="https://www.notion.so/3081f0dce8fb48849a56479097b35cce?pvs=4">
-                        <img width="50" height="50" src="https://img.icons8.com/material-outlined/50/notion--v1.png" alt="notion--v1"/>
-                    </a>
+                        <img width="40" height="40" src="https://img.icons8.com/material-outlined/50/notion--v1.png" alt="notion--v1"/> notion
+                    </a>&nbsp;&nbsp;&nbsp;&nbsp;
                     <a href="https://dev-adela.tistory.com/">
-                        <img width="50" height="50" src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FcrpvuK%2FbtsmQfhHamu%2F1lM5RkqEBoK9YikH93RPVK%2Fimg.png">
+                        <img width="40" height="40" src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FcrpvuK%2FbtsmQfhHamu%2F1lM5RkqEBoK9YikH93RPVK%2Fimg.png"> blog
                     </a>
                 </p>
             </article>
         </section>
         <section id="about">
-            <h2> About </h2>
+            <p class="a_title"> About </p>
             <div class="about_title"> Experience </div>
-            <p class="content">2301102 ~ 239292 blalbalblblab</p>
-            <p class="content">2301102 ~ 239292 blalbalblblab</p>
-            <p class="content">2301102 ~ 239292 blalbalblblab</p>
+            <p class="content">2301102 ~ 239292 (개월) blalbalblblab<br><br>
+                2301102 ~ 239292 (개월) blalbalblblab<br><br>
+                2301102 ~ 239292 (개월) blalbalblblab</p>
 
             <div class="about_title"> Education </div>
-            <p class="content">2301102 ~ 239292 blalbalblblab</p>
-            <p class="content">2301102 ~ 239292 blalbalblblab</p>
-            <p class="content">2301102 ~ 239292 blalbalblblab</p>
+            <p class="content">2023.03 ~ 2023.09 MIT능력개발원 / 데이터분석을 위한 AI응용소프트웨어 개발자<br><br>
+            2009.03 ~ 2014.02 대학교 학과 </p>
 
             <div class="about_title"> Skill set </div>
             <p class="content">2301102 ~ 239292 blalbalblblab</p>
@@ -132,35 +182,49 @@
             <p class="content">2301102 ~ 239292 blalbalblblab</p>
         </section>
         <section id="project">
-            <h2> Project </h2>
-            <table>
-                <th rowspan="2"> 이미지 </th>
-                <td> Project:blablab   기간:blablalb</td>
-                <td> 설명blblblblblblblblblblblblblblbl</td>
+            <p class="p_title"> Project </p>
+            <table class="p_table" >
+                <tr><th rowspan="3"><img src="https://img.freepik.com/free-vector/server-room-isometric-icon-database-connection-transfer-data-remote-cloud-storage-server-rack_39422-842.jpg?w=996&t=st=1689775745~exp=1689776345~hmac=74678db7a2eee08d7a2ebdd74eeca33ee157f0746e53099431e2200f8182ba4e" width="220px;"></th></tr>
+                <tr><td class="p_table_t"><b>프로젝트 : 공장 생산품 상황판 </b>(23.06 - 23.07) <br>
+                </td></tr>
+                <tr><td> 측정 장비로부터 생산품 양품/불량 및<br> 검사데이터 수집 및 분류<br><br>
+                <a href="#" >코드보기</a></td></tr>
             </table><br><br>
-            <table>
-                <th rowspan="2"> 이미지 </th>
-                <td> Project:blablab   기간:blablalb</td>
-                <td> 설명blblblblblblblblblblblblblblbl</td>
+            <table class="p_table">
+                <tr><th rowspan="3"><img src="https://img.freepik.com/free-vector/server-room-isometric-icon-database-connection-transfer-data-remote-cloud-storage-server-rack_39422-842.jpg?w=996&t=st=1689775745~exp=1689776345~hmac=74678db7a2eee08d7a2ebdd74eeca33ee157f0746e53099431e2200f8182ba4e" width="220px;"></th></tr>
+                <tr><td class="p_table_t"><b>프로젝트 : 공장 생산품 상황판 </b>(23.06 - 23.07) <br>
+                </td></tr>
+                <tr><td> 측정 장비로부터 생산품 양품/불량 및<br> 검사데이터 수집 및 분류<br><br>
+                <a href="#" >코드보기</a></td></tr>
             </table><br><br>
-            <table>
-                <th rowspan="2"> 이미지 </th>
-                <td> Project:blablab   기간:blablalb</td>
-                <td> 설명blblblblblblblblblblblblblblbl</td>
+            <table class="p_table">
+                <tr><th rowspan="3"><img src="https://img.freepik.com/free-vector/server-room-isometric-icon-database-connection-transfer-data-remote-cloud-storage-server-rack_39422-842.jpg?w=996&t=st=1689775745~exp=1689776345~hmac=74678db7a2eee08d7a2ebdd74eeca33ee157f0746e53099431e2200f8182ba4e" width="220px;"></th></tr>
+                <tr><td class="p_table_t"><b>프로젝트 : 공장 생산품 상황판 </b>(23.06 - 23.07) <br>
+                </td></tr>
+                <tr><td> 측정 장비로부터 생산품 양품/불량 및<br> 검사데이터 수집 및 분류<br><br>
+                <a href="#" >코드보기</a></td></tr>
             </table><br><br>
         </section>
         <section id="interests">
-            <h2> Interests </h2>
+            <p class="i_title"> Interests </p>
             <p><img class='interest' src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Cat03.jpg/1200px-Cat03.jpg">
-                <img class='interest' src="">
-                <img class='interest' src="">
-                <img class='interest' src=""></p>
+                <img class='interest' src="https://wheatlesswanderlust.com/wp-content/uploads/2020/10/DSC_0277.jpg">
+                <img class='interest' src="https://www.thebookseller.com/AcuCustom/Sitename/DAM/434/Books_1920_X_1080_copy.jpg">
+                <img class='interest' src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKv8taBEgmi-quszWfy9qFjoN4yNw8RXP4QQ&usqp=CAU"></p>
 
         </section>
         <footer>
-            <p>전설희 / 010-6208-6666 / </p>
+            <a href="https://github.com/adelajeon/my_practice.github.io">
+                <img width="40" height="40" src="https://img.icons8.com/material-outlined/384/github.png" alt="github"/> git-hub
+            </a>&nbsp;&nbsp;<a href="https://www.notion.so/3081f0dce8fb48849a56479097b35cce?pvs=4">
+                <img width="40" height="40" src="https://img.icons8.com/material-outlined/50/notion--v1.png" alt="notion--v1"/> notion
+            </a>&nbsp;&nbsp;
+            <a href="https://dev-adela.tistory.com/">
+                <img width="40" height="40" src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FcrpvuK%2FbtsmQfhHamu%2F1lM5RkqEBoK9YikH93RPVK%2Fimg.png"> blog
+            </a>
         </footer>
     </div>
-    
 </body>
 </html>
+
+<!-- 추천서 넣기, Experience에 마케팅포폴 모달창으로 skillset 글자로적기 프로그레스바 만들기 -->
