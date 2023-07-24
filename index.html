@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>my HomePage</title>
+    <style>
+        body { padding-top: 150px;
+            background-color: #A7F1BC;
+            position:center;
+            font-family: 'NanumSquareRound';
+            width: 1500px; margin: 0 auto;}
+        body::-webkit-scrollbar {display: none;}
+        a { text-decoration: none;}
+        /* 컨텐츠 시작 */
+        #home {
+            position:fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 20px 60px;
+            background-color: #fffdfd;
+            color: #393d3f;
+            font-size: 18px;
+            height:80px;
+            font-family: 'NanumSquareRound';
+            font-weight:bold;
+          }
+        .start {float:left;}
+        .nav {
+            display:flex;
+            justify-content: center;
+            margin-top: 8px;
+            font-size:20px;
+            color:#A7F1BC;
+          }
+        /*section - main 부분 */
+        section {width: 1200px; margin: 10px auto; position:center;}
+        #main {
+            margin: 80px 150px 120px 150px ;
+            display: flex;
+            justify-content:center;
+        }
+        .hello {font-size: 50px; font-weight:bold; border-radius:5px; width:275px;
+            background-color: #393d3f; color:#A7F1BC;}
+        .left_a {float:left; margin-right:30px;}
+        .pic {width: 250px; border-radius: 40%; margin:20px;}
+        .right_a {float:inline-end;}
+        .icon {margin-left:-20px;}
+        /*modal*/
+        .modal_wrap{
+            display: none;
+            width: 500px;
+            height: 500px;
+            position: absolute;
+            top:40%;
+            left: 40%;
+            margin: -250px 0 0 -250px;
+            background:#ffffff00;
+            z-index: 2;
+            border-radius: 10%;
+        }
+        .black_bg{
+            display: none;
+            position: absolute;
+            content: "";
+            width: 100%;
+            height: 100%;
+            background-color:#fffdfd90;
+            top:0;
+            left: 0;
+            z-index: 1;
+        }
+        .modal_close{
+            width: 26px;
+            height: 26px;
+            position: absolute;
+            top: -20px;
+            right: -100px;
+        }
+                
+        /* 슬라이스 내용들 */
+        .slideshow-container {
+            max-width: 600px;
+            position: relative;
+            margin: auto;
+            align-items: center;
+        }
+        
+        /*순차적으로나오기위해 이미지 다른거 가리기 */
+        .mySlides {
+            display: none;
+        }
+        
+        /* 다음/이전 버튼 */
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            margin-top: -22px;
+            padding: 16px;
+            color: #393d3f;
+            font-weight: bold;
+            font-size: 18px;
+            transition: 0.6s ease;
+            user-select: none;
+        }
+        
+        /* 넘기기 버튼 배경 */
+        .next {
+            right: -50px;
+            border-radius: 3px 0 0 3px;
+        }
+        
+        /* Number text (1/3 etc) */
+        .numbertext {
+            color: #393d3f;
+            font-size: 12px;
+            padding: 8px 12px;
+            position: absolute;
+            top: 0;
+        }
+        
+        /* 아래 dot */
+        .dot {
+            cursor: pointer;
+            height: 15px;
+            width: 15px;
+            margin: 0 2px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.6s ease;
+        }
+        
+        .active, .dot:hover {
+            background-color: #717171;
+        }
+        
+        /* Fading 애니메이션 */
+        .fade {
+            -webkit-animation-name: fade;
+            -webkit-animation-duration: 1.5s;
+            animation-name: fade;
+            animation-duration: 1.5s;
+        }
+        
+        @-webkit-keyframes fade {
+            from {opacity: .4} 
+            to {opacity: 1}
+        }
+        
+        @keyframes fade {
+            from {opacity: .4} 
+            to {opacity: 1}
+        } 
+        /*section - about 부분 */
+        .a_title {font-size: 40px; 
+            font-weight:bold;
+            background-color:#A7F1BC;
+            padding:5px 100px 5px 100px;
+            color:#393d3f;}
+        #about {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            background-color: #fffdfd;
+            padding: 30px 0 30px 0;
+            align-items:center;
+          }
+        .about_title {
+            font-size:20px;
+            font-weight:bold;
+            color:#A7F1BC;
+            background-color: #393d3f;
+            padding: 5px 50px 5px 50px;
+            margin: 30px 0 30px 0;
+        }
+
+          /*section - project 부분 */
+          .p_title {font-size: 40px; 
+            font-weight:bold;
+            background-color :#393d3f;
+            padding:5px 100px 5px 100px;
+            color:#A7F1BC;}
+          #project {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background-color:#abffd0c5;
+            align-items:center;
+            padding: 30px 0 30px 0;
+            height:700px;
+          }
+          .p_table {
+            background-color: #edf6f9;
+            height:1000px;
+            width:600px;
+          }
+
+          .p_table_t {
+            vertical-align:bottom;
+          }
+
+          /*section - interests 부분 */
+          .i_title {font-size: 40px; 
+            font-weight:bold;
+            background-color:#A7F1BC;
+            padding:5px 100px 5px 100px;
+            color:#edf6f9;
+            text-shadow:1px 1px 1px #393d3f;}
+          #interests {
+            display : flex;
+            flex-direction: column;
+            justify-content: center;
+            margin-bottom:30px;
+            background-color: #6e6f6f;
+            align-items:center;
+            height: 500px;
+          }
+          .interest { 
+            border:#393d3f;
+            margin: 10px;
+            width : 150px;
+            height : 150px;
+          }
+          footer {
+            display:flex;
+            justify-content: center;
+            color:#393d3f;
+            background-color: rgba(255, 255, 255, 0.523);
+            height:80px;
+            align-items:center;
+          }
+    </style>
+    <script>
+        window.onload = function() {
+        
+        function onClick() {
+            document.querySelector('.modal_wrap').style.display ='block';
+            document.querySelector('.black_bg').style.display ='block';
+        }   
+        function offClick() {
+            document.querySelector('.modal_wrap').style.display ='none';
+            document.querySelector('.black_bg').style.display ='none';
+        }
+        
+        document.getElementById('modal_btn').addEventListener('click', onClick);
+        document.querySelector('.modal_close').addEventListener('click', offClick);
+        };
+        /* 슬라이드 */
+        var slideIndex = 1;
+        showSlides(slideIndex);
+
+        // 다음/이전
+        function plusSlides(n) {
+        showSlides(slideIndex += n);
+        }
+        // 페이지 넘어가게
+        function showSlides(n) {
+        var i;
+        var slides = document.getElementsByClassName("mySlides");
+        var dots = document.getElementsByClassName("dot");
+        if (n > slides.length) {slideIndex = 1} 
+        if (n < 1) {slideIndex = slides.length}
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none"; 
+        }
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex-1].style.display = "block"; 
+        dots[slideIndex-1].className += " active";
+        } 
+    </script>
+</head>
+<body>
+    <div>
+        <header id="home">
+            <h1 class="start"> PORTFOLIO </h1>
+            <div class="nav">
+                <h2><a href="#main" style="color:#393d3f; font-weight:bold; background: linear-gradient(to top, #A7F1BC 50%, transparent 50%)">HOME</a></h2>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <h2><a href="#about" style="color:#393d3f; font-weight:bold; background: linear-gradient(to top, #A7F1BC 50%, transparent 50%)">ABOUT</a></h2>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <h2><a href="#project" style="color:#393d3f; font-weight:bold; background: linear-gradient(to top, #A7F1BC 50%, transparent 50%)">PROJECT</a></h2>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <h2><a href="#interests" style="color:#393d3f; font-weight:bold; background: linear-gradient(to top, #A7F1BC 50%, transparent 50%)">INTERESTS</a></h2>
+            </div>
+        </header>
+        <section id="main">
+            <article class="left_a">
+                <img class='pic' src="https://cdn.wadiz.kr/ft/images/green001/2021/1213/20211213120822340_4.jpg/wadiz/format/jpg/quality/80/">
+                <p align="center"><b>전설희 Adela</b> 010-6208-6666</p>
+            </article>
+            <article class="right_a">
+                <p class="hello">&nbsp;안녕하세요,</p>
+                <p> 전설희 입니다. 여기에 간단한 자기소개 2~3줄 적을 예정입니다. </p>
+                <p> 전설희 입니다. 여기에 간단한 자기소개 2~3줄 적을 예정입니다. </p>
+                <p> 전설희 입니다. 여기에 간단한 자기소개 2~3줄 적을 예정입니다. </p>
+                <br>
+                <p>
+                    <div class="icon">
+                    <a href="https://github.com/adelajeon/my_practice.github.io">
+                        <img width="40" height="40" src="https://img.icons8.com/material-outlined/384/github.png" alt="github"/> Git-hub
+                    </a>&nbsp;&nbsp;&nbsp;
+                    <a href="https://www.notion.so/3081f0dce8fb48849a56479097b35cce?pvs=4">
+                        <img width="40" height="40" src="https://img.icons8.com/material-outlined/50/notion--v1.png" alt="notion--v1"/> Notion
+                    </a>&nbsp;&nbsp;&nbsp;
+                    <a href="https://dev-adela.tistory.com/">
+                        <img width="40" height="40" src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FcrpvuK%2FbtsmQfhHamu%2F1lM5RkqEBoK9YikH93RPVK%2Fimg.png"> Blog
+                    </a>&nbsp;&nbsp;
+                    <a href="#" id="modal_btn">
+                        <img width="40" height="40" src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FtdFko%2FbtsoCkAEy9M%2FzaVNOYWMZGkMKXaQcc85tk%2Fimg.png">References </a>
+                    <div class="black_bg"></div>
+                    <div class="modal_wrap">
+                    <div class="modal_close"><a href="#"><img width="50" height="50" src="https://img.icons8.com/sf-black-filled/64/close-window.png" alt="close-window"/></a></div>
+                    <div>
+                        <div class="slideshow-container">
+                            <!-- Full-width images with number and caption text -->
+                            <div class="mySlides fade">
+                              <div class="numbertext">1 / 2</div>
+                              <img height="800px" src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FXDilt%2FbtsoINa69Dy%2Fv4AT18jQFcQpmn5PO9TERk%2Fimg.png">
+                            </div>
+                          
+                            <div class="mySlides fade">
+                              <div class="numbertext">2 / 2</div>
+                              <img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FEK0Sz%2FbtsoGi3o2Hj%2FvNxgiWMddjI8Qd1sucb1q0%2Fimg.png" height="800px">
+                            </div>
+                            <!-- Next and previousbuttons -->
+                            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                          </div>
+                          <br>
+                          <!-- The dots/circles -->
+                          <div style="text-align:center">
+                            <span class="dot" onclick="currentSlide(1)"></span> 
+                            <span class="dot" onclick="currentSlide(2)"></span> 
+                          </div> 
+                    </div>
+                    <div>
+                </p>
+            </article>
+        </section>
+        <section id="about">
+            <p class="a_title"> About </p>
+            <div class="about_title"> Education </div>
+            <p class="content">2023.03 ~ 2023.09 MIT능력개발원 / 데이터분석을 위한 AI응용소프트웨어 개발자<br><br>
+            2009.03 ~ 2014.02 대학교 학과 </p>
+
+            <div class="about_title"> Experience </div>
+            <p class="content">2015.04 ~ 2022.11 브랜드 마케터 
+                <a href="#">▶ Portfolio 보기</a> <br><br>
+                2014.01 ~ 2014.12 캐나다 워킹홀리데이</p>
+
+            <div class="about_title"> Skill set </div>
+            <p class="content">Python(Pandas/Numpy/Seaborn/scikit-learn)</p>
+            <p class="content">SQL, HTML, CSS</p>
+            <p class="content">커뮤니케이션/스케줄링/긍정적</p>
+        </section>
+        <section id="project">
+            <p class="p_title"> Project </p>
+            <table class="p_table" >
+                <tr><th rowspan="3"><img src="https://img.freepik.com/free-vector/server-room-isometric-icon-database-connection-transfer-data-remote-cloud-storage-server-rack_39422-842.jpg?w=996&t=st=1689775745~exp=1689776345~hmac=74678db7a2eee08d7a2ebdd74eeca33ee157f0746e53099431e2200f8182ba4e" width="220px;"></th></tr>
+                <tr><td class="p_table_t"><b>프로젝트 : 공장 생산품 상황판 </b>(23.06 - 23.07) <br>
+                </td></tr>
+                <tr><td> 측정 장비로부터 생산품 양품/불량 및<br> 검사데이터 수집 및 분류<br><br>
+                <a href="#" >코드보기</a></td></tr>
+            </table><br><br>
+            <table class="p_table">
+                <tr><th rowspan="3"><img src="https://img.freepik.com/free-vector/server-room-isometric-icon-database-connection-transfer-data-remote-cloud-storage-server-rack_39422-842.jpg?w=996&t=st=1689775745~exp=1689776345~hmac=74678db7a2eee08d7a2ebdd74eeca33ee157f0746e53099431e2200f8182ba4e" width="220px;"></th></tr>
+                <tr><td class="p_table_t"><b>프로젝트 : 공장 생산품 상황판 </b>(23.06 - 23.07) <br>
+                </td></tr>
+                <tr><td> 측정 장비로부터 생산품 양품/불량 및<br> 검사데이터 수집 및 분류<br><br>
+                <a href="#" >코드보기</a></td></tr>
+            </table><br><br>
+            <table class="p_table">
+                <tr><th rowspan="3"><img src="https://img.freepik.com/free-vector/server-room-isometric-icon-database-connection-transfer-data-remote-cloud-storage-server-rack_39422-842.jpg?w=996&t=st=1689775745~exp=1689776345~hmac=74678db7a2eee08d7a2ebdd74eeca33ee157f0746e53099431e2200f8182ba4e" width="220px;"></th></tr>
+                <tr><td class="p_table_t"><b>프로젝트 : 공장 생산품 상황판 </b>(23.06 - 23.07) <br>
+                </td></tr>
+                <tr><td> 측정 장비로부터 생산품 양품/불량 및<br> 검사데이터 수집 및 분류<br><br>
+                <a href="#" >코드보기</a></td></tr>
+            </table><br><br>
+        </section>
+        <section id="interests">
+            <p class="i_title"> Interests </p>
+            <p><img class='interest' src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Cat03.jpg/1200px-Cat03.jpg">
+                <img class='interest' src="https://wheatlesswanderlust.com/wp-content/uploads/2020/10/DSC_0277.jpg">
+                <img class='interest' src="https://www.thebookseller.com/AcuCustom/Sitename/DAM/434/Books_1920_X_1080_copy.jpg">
+                <img class='interest' src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKv8taBEgmi-quszWfy9qFjoN4yNw8RXP4QQ&usqp=CAU"></p>
+
+        </section>
+        <footer>
+            <a href="https://github.com/adelajeon/my_practice.github.io">
+                <img width="40" height="40" src="https://img.icons8.com/material-outlined/384/github.png" alt="github"/> git-hub
+            </a>&nbsp;&nbsp;<a href="https://www.notion.so/3081f0dce8fb48849a56479097b35cce?pvs=4">
+                <img width="40" height="40" src="https://img.icons8.com/material-outlined/50/notion--v1.png" alt="notion--v1"/> notion
+            </a>&nbsp;&nbsp;
+            <a href="https://dev-adela.tistory.com/">
+                <img width="40" height="40" src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FcrpvuK%2FbtsmQfhHamu%2F1lM5RkqEBoK9YikH93RPVK%2Fimg.png"> blog
+            </a>
+        </footer>
+    </div>
+</body>
+</html>
+
+<!-- 추천서 넣기, Experience에 마케팅포폴 모달창으로 skillset 글자로적기 프로그레스바 만들기 -->
