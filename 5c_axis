@@ -1,7 +1,0 @@
-arr = np.array([[0,1,0], [5,6,7], [10, 11,12]])
-print("🌠arr 행렬🌠\n", arr)
-print("arr 행렬 각 열의 합계:", arr.sum(axis=0))
-print("arr 행렬 각 행의 합계:", arr.sum(axis=1))
-
-print("arr 행렬 각 열의 Boolean:", np.all(arr, axis=0))
-print("arr 행렬 각 행의 Boolean:", np.all(arr, axis=1))
