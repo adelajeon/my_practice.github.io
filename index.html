@@ -5,19 +5,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>my HomePage</title>
     <style>
+        html {
+            width: 100%;
+            height: 100%;
+        }
         body { padding-top: 150px;
             background-color: #A7F1BC;
             position:center;
             font-family: 'NanumSquareRound';
-            width: 1500px; margin: 0 auto;}
-        body::-webkit-scrollbar {display: none;}
+            width: auto;
+            margin: 0 auto;
+            padding: 0;}
+
         a { text-decoration: none;}
+        /*프로그레스바*/
+        .head {
+            position: fixed;
+            top: 120px;
+            z-index: 1;
+            width: 100%;
+            background-color: #A7F1BC;
+        }
+     
+        .progress-container {
+            width: 100%;
+            height: 10px;
+            background: #fffdfd;
+        }
+     
+        .progress-container .progress-bar {
+            width: 0;
+            height: 10px;
+            background: #393d3f;
+        }
         /* 컨텐츠 시작 */
-        #home {
-            position:fixed;
-            top: 0;
+        header {
+            position : fixed;
+            top: 0%;
             left: 0;
             right: 0;
+        }
+        #home {
             padding: 20px 60px;
             background-color: #fffdfd;
             color: #393d3f;
@@ -35,9 +63,9 @@
             color:#A7F1BC;
           }
         /*section - main 부분 */
-        section {width: 1200px; margin: 10px auto; position:center;}
+        section { margin: 150px 0 0 0 auto; }
         #main {
-            margin: 80px 150px 120px 150px ;
+            margin: 250px 0px 120px 0px ;
             display: flex;
             justify-content:center;
         }
@@ -163,9 +191,10 @@
             color:#393d3f;}
         #about {
             display: flex;
+            background-size:contain;
             justify-content: center;
             flex-direction: column;
-            background-color: #fffdfd;
+            background-color: rgb(253, 253, 246);
             padding: 30px 0 30px 0;
             align-items:center;
           }
@@ -235,6 +264,16 @@
           }
     </style>
     <script>
+        window.onscroll = function () {
+            progressBar()
+        };
+     
+        function progressBar() {
+            var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            var scrolled = (winScroll / height) * 100;
+            document.getElementsByClassName("progress-bar")[0].style.width = scrolled + "%";
+        }
         window.onload = function() {
         
         function onClick() {
@@ -273,9 +312,15 @@
         slides[slideIndex-1].style.display = "block"; 
         dots[slideIndex-1].className += " active";
         } 
+
     </script>
 </head>
 <body>
+    <div class="head">
+        <div class="progress-container">
+            <div class="progress-bar"></div>
+        </div>
+    </div>
     <div>
         <header id="home">
             <h1 class="start"> PORTFOLIO </h1>
@@ -323,14 +368,13 @@
                               <div class="numbertext">1 / 2</div>
                               <img height="800px" src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FXDilt%2FbtsoINa69Dy%2Fv4AT18jQFcQpmn5PO9TERk%2Fimg.png">
                             </div>
-                          
                             <div class="mySlides fade">
                               <div class="numbertext">2 / 2</div>
                               <img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FEK0Sz%2FbtsoGi3o2Hj%2FvNxgiWMddjI8Qd1sucb1q0%2Fimg.png" height="800px">
                             </div>
                             <!-- Next and previousbuttons -->
-                            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-                            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                            <a class="prev" onclick="plusSlides(1)">&#10094;</a>
+                            <a class="next" onclick="plusSlides(2)">&#10095;</a>
                           </div>
                           <br>
                           <!-- The dots/circles -->
@@ -346,7 +390,7 @@
         <section id="about">
             <p class="a_title"> About </p>
             <div class="about_title"> Education </div>
-            <p class="content">2023.03 ~ 2023.09 MIT능력개발원 / 데이터분석을 위한 AI응용소프트웨어 개발자<br><br>
+            <p class="content">2023.03 ~ 2023.09 MIT능력개발원 / 데이터분석을 위한 AI응용소프트웨어 개발자과정<br><br>
             2009.03 ~ 2014.02 대학교 학과 </p>
 
             <div class="about_title"> Experience </div>
@@ -357,7 +401,7 @@
             <div class="about_title"> Skill set </div>
             <p class="content">Python(Pandas/Numpy/Seaborn/scikit-learn)</p>
             <p class="content">SQL, HTML, CSS</p>
-            <p class="content">커뮤니케이션/스케줄링/긍정적</p>
+            <p class="content">#굿커뮤니케이션 #굿스케줄링 #굿실행력 #긍정적</p>
         </section>
         <section id="project">
             <p class="p_title"> Project </p>
@@ -393,16 +437,14 @@
         </section>
         <footer>
             <a href="https://github.com/adelajeon/my_practice.github.io">
-                <img width="40" height="40" src="https://img.icons8.com/material-outlined/384/github.png" alt="github"/> git-hub
+                <img width="40" height="40" src="https://img.icons8.com/material-outlined/384/github.png" alt="github"/> Git-hub
             </a>&nbsp;&nbsp;<a href="https://www.notion.so/3081f0dce8fb48849a56479097b35cce?pvs=4">
-                <img width="40" height="40" src="https://img.icons8.com/material-outlined/50/notion--v1.png" alt="notion--v1"/> notion
+                <img width="40" height="40" src="https://img.icons8.com/material-outlined/50/notion--v1.png" alt="notion--v1"/> Notion
             </a>&nbsp;&nbsp;
             <a href="https://dev-adela.tistory.com/">
-                <img width="40" height="40" src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FcrpvuK%2FbtsmQfhHamu%2F1lM5RkqEBoK9YikH93RPVK%2Fimg.png"> blog
+                <img width="40" height="40" src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FcrpvuK%2FbtsmQfhHamu%2F1lM5RkqEBoK9YikH93RPVK%2Fimg.png"> Blog
             </a>
         </footer>
     </div>
 </body>
 </html>
-
-<!-- 추천서 넣기, Experience에 마케팅포폴 모달창으로 skillset 글자로적기 프로그레스바 만들기 -->
