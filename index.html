@@ -16,8 +16,9 @@
             width: auto;
             margin: 0 auto;
             padding: 0;}
-
+        body::-webkit-scrollbar {display: none;}
         a { text-decoration: none;}
+
         /*프로그레스바*/
         .head {
             position: fixed;
@@ -104,85 +105,8 @@
             height: 26px;
             position: absolute;
             top: -20px;
-            right: -100px;
+            right: -70px;
         }
-                
-        /* 슬라이스 내용들 */
-        .slideshow-container {
-            max-width: 600px;
-            position: relative;
-            margin: auto;
-            align-items: center;
-        }
-        
-        /*순차적으로나오기위해 이미지 다른거 가리기 */
-        .mySlides {
-            display: none;
-        }
-        
-        /* 다음/이전 버튼 */
-        .prev, .next {
-            cursor: pointer;
-            position: absolute;
-            top: 50%;
-            width: auto;
-            margin-top: -22px;
-            padding: 16px;
-            color: #393d3f;
-            font-weight: bold;
-            font-size: 18px;
-            transition: 0.6s ease;
-            user-select: none;
-        }
-        
-        /* 넘기기 버튼 배경 */
-        .next {
-            right: -50px;
-            border-radius: 3px 0 0 3px;
-        }
-        
-        /* Number text (1/3 etc) */
-        .numbertext {
-            color: #393d3f;
-            font-size: 12px;
-            padding: 8px 12px;
-            position: absolute;
-            top: 0;
-        }
-        
-        /* 아래 dot */
-        .dot {
-            cursor: pointer;
-            height: 15px;
-            width: 15px;
-            margin: 0 2px;
-            background-color: #bbb;
-            border-radius: 50%;
-            display: inline-block;
-            transition: background-color 0.6s ease;
-        }
-        
-        .active, .dot:hover {
-            background-color: #717171;
-        }
-        
-        /* Fading 애니메이션 */
-        .fade {
-            -webkit-animation-name: fade;
-            -webkit-animation-duration: 1.5s;
-            animation-name: fade;
-            animation-duration: 1.5s;
-        }
-        
-        @-webkit-keyframes fade {
-            from {opacity: .4} 
-            to {opacity: 1}
-        }
-        
-        @keyframes fade {
-            from {opacity: .4} 
-            to {opacity: 1}
-        } 
         /*section - about 부분 */
         .a_title {font-size: 40px; 
             font-weight:bold;
@@ -205,6 +129,13 @@
             background-color: #393d3f;
             padding: 5px 50px 5px 50px;
             margin: 30px 0 30px 0;
+        }
+        .marketing {
+            font-size:small; 
+            border: 0.5px solid #393d3f; 
+            color:#393d3f;
+            padding:2px;
+            border-radius: 5px;
         }
 
           /*section - project 부분 */
@@ -288,31 +219,6 @@
         document.getElementById('modal_btn').addEventListener('click', onClick);
         document.querySelector('.modal_close').addEventListener('click', offClick);
         };
-        /* 슬라이드 */
-        var slideIndex = 1;
-        showSlides(slideIndex);
-
-        // 다음/이전
-        function plusSlides(n) {
-        showSlides(slideIndex += n);
-        }
-        // 페이지 넘어가게
-        function showSlides(n) {
-        var i;
-        var slides = document.getElementsByClassName("mySlides");
-        var dots = document.getElementsByClassName("dot");
-        if (n > slides.length) {slideIndex = 1} 
-        if (n < 1) {slideIndex = slides.length}
-        for (i = 0; i < slides.length; i++) {
-            slides[i].style.display = "none"; 
-        }
-        for (i = 0; i < dots.length; i++) {
-            dots[i].className = dots[i].className.replace(" active", "");
-        }
-        slides[slideIndex-1].style.display = "block"; 
-        dots[slideIndex-1].className += " active";
-        } 
-
     </script>
 </head>
 <body>
@@ -347,7 +253,7 @@
                 <br>
                 <p>
                     <div class="icon">
-                    <a href="https://github.com/adelajeon/my_practice.github.io">
+                    <a href="#">
                         <img width="40" height="40" src="https://img.icons8.com/material-outlined/384/github.png" alt="github"/> Git-hub
                     </a>&nbsp;&nbsp;&nbsp;
                     <a href="https://www.notion.so/3081f0dce8fb48849a56479097b35cce?pvs=4">
@@ -362,28 +268,8 @@
                     <div class="modal_wrap">
                     <div class="modal_close"><a href="#"><img width="50" height="50" src="https://img.icons8.com/sf-black-filled/64/close-window.png" alt="close-window"/></a></div>
                     <div>
-                        <div class="slideshow-container">
-                            <!-- Full-width images with number and caption text -->
-                            <div class="mySlides fade">
-                              <div class="numbertext">1 / 2</div>
-                              <img height="800px" src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FXDilt%2FbtsoINa69Dy%2Fv4AT18jQFcQpmn5PO9TERk%2Fimg.png">
-                            </div>
-                            <div class="mySlides fade">
-                              <div class="numbertext">2 / 2</div>
-                              <img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FEK0Sz%2FbtsoGi3o2Hj%2FvNxgiWMddjI8Qd1sucb1q0%2Fimg.png" height="800px">
-                            </div>
-                            <!-- Next and previousbuttons -->
-                            <a class="prev" onclick="plusSlides(1)">&#10094;</a>
-                            <a class="next" onclick="plusSlides(2)">&#10095;</a>
-                          </div>
-                          <br>
-                          <!-- The dots/circles -->
-                          <div style="text-align:center">
-                            <span class="dot" onclick="currentSlide(1)"></span> 
-                            <span class="dot" onclick="currentSlide(2)"></span> 
-                          </div> 
+                        <img width="550px" src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FXDilt%2FbtsoINa69Dy%2Fv4AT18jQFcQpmn5PO9TERk%2Fimg.png">
                     </div>
-                    <div>
                 </p>
             </article>
         </section>
@@ -395,7 +281,7 @@
 
             <div class="about_title"> Experience </div>
             <p class="content">2015.04 ~ 2022.11 브랜드 마케터 
-                <a href="#">▶ Portfolio 보기</a> <br><br>
+                <a href="#" class="marketing" >▶ Portfolio 보기</a> <br><br>
                 2014.01 ~ 2014.12 캐나다 워킹홀리데이</p>
 
             <div class="about_title"> Skill set </div>
@@ -436,7 +322,7 @@
 
         </section>
         <footer>
-            <a href="https://github.com/adelajeon/my_practice.github.io">
+            <a href="#">
                 <img width="40" height="40" src="https://img.icons8.com/material-outlined/384/github.png" alt="github"/> Git-hub
             </a>&nbsp;&nbsp;<a href="https://www.notion.so/3081f0dce8fb48849a56479097b35cce?pvs=4">
                 <img width="40" height="40" src="https://img.icons8.com/material-outlined/50/notion--v1.png" alt="notion--v1"/> Notion
