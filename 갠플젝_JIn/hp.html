@@ -5,18 +5,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>my HomePage</title>
     <style>
+        html {
+            width: 100%;
+            height: 100%;
+        }
         body { padding-top: 150px;
             background-color: #A7F1BC;
             position:center;
-            font-family: 'NanumSquareRound';}
-
+            font-family: 'NanumSquareRound';
+            width: auto;
+            margin: 0 auto;
+            padding: 0;}
         body::-webkit-scrollbar {display: none;}
         a { text-decoration: none;}
-        #home {
-            position:fixed;
-            top: 0;
+
+        /*프로그레스바*/
+        .head {
+            position: fixed;
+            top: 120px;
+            z-index: 1;
+            width: 100%;
+            background-color: #A7F1BC;
+        }
+     
+        .progress-container {
+            width: 100%;
+            height: 10px;
+            background: #fffdfd;
+        }
+     
+        .progress-container .progress-bar {
+            width: 0;
+            height: 10px;
+            background: #393d3f;
+        }
+        /* 컨텐츠 시작 */
+        header {
+            position : fixed;
+            top: 0%;
             left: 0;
             right: 0;
+        }
+        #home {
             padding: 20px 60px;
             background-color: #fffdfd;
             color: #393d3f;
@@ -34,17 +64,49 @@
             color:#A7F1BC;
           }
         /*section - main 부분 */
-        section {width: 1200px; margin: 10px auto; position:center;}
+        section { margin: 150px 0 0 0 auto; }
         #main {
-            margin: 80px 150px 120px 150px ;
+            margin: 250px 0px 120px 0px ;
             display: flex;
             justify-content:center;
         }
-        .hello {font-size: 50px; font-weight:bold; 
+        .hello {font-size: 50px; font-weight:bold; border-radius:5px; width:275px;
             background-color: #393d3f; color:#A7F1BC;}
         .left_a {float:left; margin-right:30px;}
         .pic {width: 250px; border-radius: 40%; margin:20px;}
         .right_a {float:inline-end;}
+        .icon {margin-left:-20px;}
+        /*modal*/
+        .modal_wrap{
+            display: none;
+            width: 500px;
+            height: 500px;
+            position: absolute;
+            top:40%;
+            left: 40%;
+            margin: -250px 0 0 -250px;
+            background:#ffffff00;
+            z-index: 2;
+            border-radius: 10%;
+        }
+        .black_bg{
+            display: none;
+            position: absolute;
+            content: "";
+            width: 100%;
+            height: 100%;
+            background-color:#fffdfd90;
+            top:0;
+            left: 0;
+            z-index: 1;
+        }
+        .modal_close{
+            width: 26px;
+            height: 26px;
+            position: absolute;
+            top: -20px;
+            right: -70px;
+        }
         /*section - about 부분 */
         .a_title {font-size: 40px; 
             font-weight:bold;
@@ -53,11 +115,11 @@
             color:#393d3f;}
         #about {
             display: flex;
+            background-size:contain;
             justify-content: center;
             flex-direction: column;
-            background-color: #fffdfd;
+            background-color: rgb(253, 253, 246);
             padding: 30px 0 30px 0;
-            margin: 100 0 80px 0;
             align-items:center;
           }
         .about_title {
@@ -67,6 +129,13 @@
             background-color: #393d3f;
             padding: 5px 50px 5px 50px;
             margin: 30px 0 30px 0;
+        }
+        .marketing {
+            font-size:small; 
+            border: 0.5px solid #393d3f; 
+            color:#393d3f;
+            padding:2px;
+            border-radius: 5px;
         }
 
           /*section - project 부분 */
@@ -82,7 +151,6 @@
             background-color:#abffd0c5;
             align-items:center;
             padding: 30px 0 30px 0;
-            margin: 100 0 80px 0;
             height:700px;
           }
           .p_table {
@@ -106,8 +174,7 @@
             display : flex;
             flex-direction: column;
             justify-content: center;
-            margin-bottom:30px;
-            background-color: #6e6f6f;
+            background-color: #393d3f;
             align-items:center;
             height: 500px;
           }
@@ -126,8 +193,39 @@
             align-items:center;
           }
     </style>
+    <script>
+        window.onscroll = function () {
+            progressBar()
+        };
+     
+        function progressBar() {
+            var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            var scrolled = (winScroll / height) * 100;
+            document.getElementsByClassName("progress-bar")[0].style.width = scrolled + "%";
+        }
+        window.onload = function() {
+        
+        function onClick() {
+            document.querySelector('.modal_wrap').style.display ='block';
+            document.querySelector('.black_bg').style.display ='block';
+        }   
+        function offClick() {
+            document.querySelector('.modal_wrap').style.display ='none';
+            document.querySelector('.black_bg').style.display ='none';
+        }
+        
+        document.getElementById('modal_btn').addEventListener('click', onClick);
+        document.querySelector('.modal_close').addEventListener('click', offClick);
+        };
+    </script>
 </head>
 <body>
+    <div class="head">
+        <div class="progress-container">
+            <div class="progress-bar"></div>
+        </div>
+    </div>
     <div>
         <header id="home">
             <h1 class="start"> PORTFOLIO </h1>
@@ -153,33 +251,42 @@
                 <p> 전설희 입니다. 여기에 간단한 자기소개 2~3줄 적을 예정입니다. </p>
                 <br>
                 <p>
-                    <a href="https://github.com/adelajeon/my_practice.github.io">
-                        <img width="40" height="40" src="https://img.icons8.com/material-outlined/384/github.png" alt="github"/> git-hub
-                    </a>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="icon">
+                    <a href="#">
+                        <img width="40" height="40" src="https://img.icons8.com/material-outlined/384/github.png" alt="github"/> Git-hub
+                    </a>&nbsp;&nbsp;&nbsp;
                     <a href="https://www.notion.so/3081f0dce8fb48849a56479097b35cce?pvs=4">
-                        <img width="40" height="40" src="https://img.icons8.com/material-outlined/50/notion--v1.png" alt="notion--v1"/> notion
-                    </a>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <img width="40" height="40" src="https://img.icons8.com/material-outlined/50/notion--v1.png" alt="notion--v1"/> Notion
+                    </a>&nbsp;&nbsp;&nbsp;
                     <a href="https://dev-adela.tistory.com/">
-                        <img width="40" height="40" src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FcrpvuK%2FbtsmQfhHamu%2F1lM5RkqEBoK9YikH93RPVK%2Fimg.png"> blog
-                    </a>
+                        <img width="40" height="40" src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FcrpvuK%2FbtsmQfhHamu%2F1lM5RkqEBoK9YikH93RPVK%2Fimg.png"> Blog
+                    </a>&nbsp;&nbsp;
+                    <a href="#" id="modal_btn">
+                        <img width="40" height="40" src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FtdFko%2FbtsoCkAEy9M%2FzaVNOYWMZGkMKXaQcc85tk%2Fimg.png">References </a>
+                    <div class="black_bg"></div>
+                    <div class="modal_wrap">
+                    <div class="modal_close"><a href="#"><img width="50" height="50" src="https://img.icons8.com/sf-black-filled/64/close-window.png" alt="close-window"/></a></div>
+                    <div>
+                        <img width="550px" src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FXDilt%2FbtsoINa69Dy%2Fv4AT18jQFcQpmn5PO9TERk%2Fimg.png">
+                    </div>
                 </p>
             </article>
         </section>
         <section id="about">
             <p class="a_title"> About </p>
-            <div class="about_title"> Experience </div>
-            <p class="content">2301102 ~ 239292 (개월) blalbalblblab<br><br>
-                2301102 ~ 239292 (개월) blalbalblblab<br><br>
-                2301102 ~ 239292 (개월) blalbalblblab</p>
-
             <div class="about_title"> Education </div>
-            <p class="content">2023.03 ~ 2023.09 MIT능력개발원 / 데이터분석을 위한 AI응용소프트웨어 개발자<br><br>
+            <p class="content">2023.03 ~ 2023.09 MIT능력개발원 / 데이터분석을 위한 AI응용소프트웨어 개발자과정<br><br>
             2009.03 ~ 2014.02 대학교 학과 </p>
 
+            <div class="about_title"> Experience </div>
+            <p class="content">2015.04 ~ 2022.11 브랜드 마케터 
+                <a href="https://adelajeon.github.io/portfolio/m_portfolio.html" class="marketing" >▶ Portfolio 보기</a> <br><br>
+                2014.01 ~ 2014.12 캐나다 워킹홀리데이</p>
+
             <div class="about_title"> Skill set </div>
-            <p class="content">2301102 ~ 239292 blalbalblblab</p>
-            <p class="content">2301102 ~ 239292 blalbalblblab</p>
-            <p class="content">2301102 ~ 239292 blalbalblblab</p>
+            <p class="content">Python(Pandas/Numpy/Seaborn/scikit-learn)</p>
+            <p class="content">SQL, HTML, CSS</p>
+            <p class="content">#굿커뮤니케이션 #굿스케줄링 #굿실행력 #긍정적</p>
         </section>
         <section id="project">
             <p class="p_title"> Project </p>
@@ -207,24 +314,24 @@
         </section>
         <section id="interests">
             <p class="i_title"> Interests </p>
-            <p><img class='interest' src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Cat03.jpg/1200px-Cat03.jpg">
+            <p>
+                <img class='interest' src="https://cdn.pixabay.com/photo/2017/04/30/18/33/kittens-2273598_1280.jpg">
                 <img class='interest' src="https://wheatlesswanderlust.com/wp-content/uploads/2020/10/DSC_0277.jpg">
                 <img class='interest' src="https://www.thebookseller.com/AcuCustom/Sitename/DAM/434/Books_1920_X_1080_copy.jpg">
-                <img class='interest' src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKv8taBEgmi-quszWfy9qFjoN4yNw8RXP4QQ&usqp=CAU"></p>
+                <img class='interest' src="https://d1s9j44aio5gjs.cloudfront.net/2016/07/The_Benefits_of_Swimming.jpg">
+            </p>
 
         </section>
         <footer>
-            <a href="https://github.com/adelajeon/my_practice.github.io">
-                <img width="40" height="40" src="https://img.icons8.com/material-outlined/384/github.png" alt="github"/> git-hub
+            <a href="#">
+                <img width="40" height="40" src="https://img.icons8.com/material-outlined/384/github.png" alt="github"/> Git-hub
             </a>&nbsp;&nbsp;<a href="https://www.notion.so/3081f0dce8fb48849a56479097b35cce?pvs=4">
-                <img width="40" height="40" src="https://img.icons8.com/material-outlined/50/notion--v1.png" alt="notion--v1"/> notion
+                <img width="40" height="40" src="https://img.icons8.com/material-outlined/50/notion--v1.png" alt="notion--v1"/> Notion
             </a>&nbsp;&nbsp;
             <a href="https://dev-adela.tistory.com/">
-                <img width="40" height="40" src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FcrpvuK%2FbtsmQfhHamu%2F1lM5RkqEBoK9YikH93RPVK%2Fimg.png"> blog
+                <img width="40" height="40" src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FcrpvuK%2FbtsmQfhHamu%2F1lM5RkqEBoK9YikH93RPVK%2Fimg.png"> Blog
             </a>
         </footer>
     </div>
 </body>
 </html>
-
-<!-- 추천서 넣기, Experience에 마케팅포폴 모달창으로 skillset 글자로적기 프로그레스바 만들기 -->
